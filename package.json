@@ -1,0 +1,33 @@
+{
+  "name": "node-typescript-basic",
+  "version": "1.0.0",
+  "description": "Basic node.js express app in TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch-ts": "tsc -w",
+    "watch-node": "nodemon dist/index.js",
+    "watch:dev": "ENVIRONMENT=dev concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch:prod": "ENVIRONMENT=prod concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "test": "nyc --reporter=html mocha -r ts-node/register src/**/*.spec.ts",
+    "lint": "esw src/**/*.ts",
+    "prettier-format": "prettier src/**/*.ts --write"
+  },
+  "author": "Gareth Parris",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.3.0",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.21.0",
+    "express": "^4.18.1",
+    "http": "^0.0.1-security",
+    "nodemon": "^2.0.19",
+    "nuc": "^0.5.2",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.1",
+    "typescript": "^4.7.4"
+  }
+}
